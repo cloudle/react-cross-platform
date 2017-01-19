@@ -1,13 +1,16 @@
 const webpack = require('webpack');
 const WebpackDevServer = require('webpack-dev-server');
 const config = require('./webpack.config');
-port = process.env.PORT || 3000;
+const port = process.env.PORT || 3000;
+const buildType = process.env.TYPE || 'app';
 
 new WebpackDevServer(webpack(config), {
 	publicPath: config.output.publicPath,
 	contentBase: 'web',
 	hot: true,
-	historyApiFallback: true,
+	historyApiFallback: {
+		index: buildType == 'app' ? 'app.html' : 'admin.html',
+	},
 	stats: {
 		assets:         false,
 		colors:         true,

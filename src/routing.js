@@ -16,8 +16,13 @@ const Router = isBrowser ?
 	ControlledBrowserRouter : ControlledMemoryRouter;
 
 @connect(({app}) => {
+	let routes = app.get('routes'),
+		index = app.get('routeIndex'),
+		navState = { routes, index },
+		location = app.get('location');
+
 	return {
-		location: app.get('location'),
+		location, navState,
 		action: app.get('action'),
 	}
 })
@@ -31,28 +36,30 @@ export default class Routes extends Component {
 	}
 
 	render() {
-		return <Router
-			history={history}
-			location={this.props.location}
-			action={this.props.action}
-			onChange={this::onNavigate}>
-			<NavigationCardStack
-				navigationState={this.state.navState}
-				renderScene={this::renderScene}/>
-		</Router>
+		return <NavigationCardStack
+			navigationState={this.props.navState}
+			renderScene={this::renderScene}/>
 	}
 }
 
 function renderScene () {
-	return <View style={{marginTop: 24}}>
-		<View>
-			<Link to="/login" title="login" context={this}/>
-			<Link to="/welcome" title="welcome" context={this}/>
+
+	return <Router
+		history={history}
+		location={this.props.location}
+		action={this.props.action}
+		onChange={this::onNavigate}>
+
+		<View style={{marginTop: 24}}>
+			<View>
+				<Link to="/login" title="login" context={this}/>
+				<Link to="/welcome" title="welcome" context={this}/>
+			</View>
+			<Match pattern="/login" component={Login}/>
+			<Match exactly pattern="/welcome" component={Welcome}/>
+			<Miss component={Welcome}/>
 		</View>
-		<Match pattern="/login" component={Login}/>
-		<Match exactly pattern="/welcome" component={Welcome}/>
-		<Miss component={Welcome}/>
-	</View>
+	</Router>
 }
 
 function onNavigate (location, action) {
@@ -76,11 +83,6 @@ function navigate (to, action, route) {
 		location: { pathname: to },
 		action: 'PUSH',
 	});
-
-	const navState = reducer(this.state.navState, 'push', {key: 'login', pathname: '/login'});
-	this.setState({
-		navState
-	})
 }
 
 function reducer(state: object, action: string, route: object): object {

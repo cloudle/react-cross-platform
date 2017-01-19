@@ -2,12 +2,13 @@ const path = require('path');
 const webpack = require('webpack');
 const happypack = require('happypack');
 const DefinePlugin = require('webpack/lib/DefinePlugin');
-const publicPath = 'http://0.0.0.0:3000/';
 
-const env = process.env.MIX_ENV || 'dev';
+const env = process.env.ENV || 'dev';
+const port = process.env.PORT || 3000;
+const buildType = process.env.TYPE || 'app';
 const prod = env === 'prod';
-
-const entry = './index.web.js';
+const publicPath = `http://0.0.0.0:${port}/`;
+const entry = buildType == 'app' ? './index.web.js' : './index.admin.js';
 
 const hot = [
 	'webpack-dev-server/client?'+publicPath,
@@ -35,12 +36,11 @@ if (env === 'dev') {
 	plugins.push(new webpack.NoErrorsPlugin());
 }
 
+let buildEntry = {}; buildEntry[buildType] = prod ? [entry] : [...hot, entry];
 module.exports = {
 	cache: true,
 	devtool: prod ? null : 'eval-source-map',
-	entry: {
-		app: prod ? [entry] : [...hot, entry],
-	},
+	entry: buildEntry,
 	output: {
 		publicPath: publicPath,
 		path: path.join(__dirname, 'web'),
@@ -64,6 +64,7 @@ module.exports = {
 				include: [
 					path.join(__dirname, 'src'),
 					path.join(__dirname, 'index.web.js'),
+					path.join(__dirname, 'index.admin.js'),
 				]
 			},
 			{

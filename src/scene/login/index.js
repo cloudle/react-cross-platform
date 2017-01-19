@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { View, ScrollView, TouchableHighlight, Text, StyleSheet } from 'react-native';
 import { connect } from 'react-redux';
 import { Match, Miss } from 'react-router';
+import * as Actions from '../../store/actions';
 
 @connect(({app}) => {
 	return {
@@ -13,7 +14,7 @@ export default class LoginScene extends Component {
 
   render () {
     return <ScrollView>
-      <Text>LoginScene!!!!</Text>
+      <Text>LoginScene {this.props.counter}</Text>
 	    <View style={{marginTop: 50}}>
 		    <View>
 			    <NavLink to="/login/success"><Text>Success</Text></NavLink>

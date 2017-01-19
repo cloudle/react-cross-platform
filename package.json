@@ -6,6 +6,7 @@
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "test": "jest",
     "web": "node webpack.devserver",
+    "admin": "TYPE=admin PORT=4000 node webpack.devserver",
     "web-vendor": "webpack --config webpack.vendor.config.js",
     "ios": "react-native run-ios",
     "android": "react-native run-android"

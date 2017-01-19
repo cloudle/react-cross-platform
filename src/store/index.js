@@ -1,14 +1,16 @@
 export * from './reducer/app';
 
+import * as Actions from './actions';
 import { createStore, compose, combineReducers, applyMiddleware } from 'redux';
 import logger from 'redux-logger';
 import app from './reducer/app';
-import * as Actions from './actions';
+import browserRoute from './reducer/browserRoute';
+import nativeRoute from './reducer/navtiveRoute';
 
 const DEVTOOLS = '__REDUX_DEVTOOLS_EXTENSION_COMPOSE__',
 	composeEnhancers = window[DEVTOOLS] || compose,
 	reducers = combineReducers({
-		app,
+		app, browserRoute, nativeRoute,
 	});
 
 let availableActions = {};
