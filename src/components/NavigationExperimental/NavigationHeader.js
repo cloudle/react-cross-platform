@@ -37,8 +37,8 @@ type Props = NavigationSceneRendererProps & {
 
 type SubViewName = 'left' | 'title' | 'right';
 
-const APPBAR_HEIGHT = ['ios', 'web'].indexOf(Platform.OS) ? 44 : 56;
-const STATUSBAR_HEIGHT = ['ios', 'web'].indexOf(Platform.OS) ? 20 : 0;
+const APPBAR_HEIGHT = new Set(['ios', 'web']).has(Platform.OS) ? 44 : 56;
+const STATUSBAR_HEIGHT = new Set(['ios', 'web']).has(Platform.OS) ? 20 : 0;
 
 class NavigationHeader extends React.Component<DefaultProps, Props, any> {
   props: Props;
@@ -197,9 +197,9 @@ class NavigationHeader extends React.Component<DefaultProps, Props, any> {
 const styles = StyleSheet.create({
   appbar: {
     alignItems: 'center',
-    backgroundColor: ['ios', 'web'].indexOf(Platform.OS) ? '#EFEFF2' : '#FFF',
+    backgroundColor: new Set(['ios', 'web']).has(Platform.OS) ? '#EFEFF2' : '#FFF',
     borderBottomColor: 'rgba(0, 0, 0, .15)',
-    borderBottomWidth: ['ios', 'web'].indexOf(Platform.OS) ? StyleSheet.hairlineWidth : 0,
+    borderBottomWidth: new Set(['ios', 'web']).has(Platform.OS) ? StyleSheet.hairlineWidth : 0,
     // elevation: 4,
     flexDirection: 'row',
     justifyContent: 'flex-start',

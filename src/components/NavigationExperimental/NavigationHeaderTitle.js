@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: '500',
     color: 'rgba(0, 0, 0, .9)',
-    textAlign: Platform.OS === 'android' ? 'left' : 'center'
+    textAlign: new Set(['ios', 'web']).has(Platform.OS) ? 'center' : 'left'
   }
 });
 

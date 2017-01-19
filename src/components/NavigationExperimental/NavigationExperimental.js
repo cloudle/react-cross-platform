@@ -5,7 +5,7 @@ import NavigationPropTypes from './NavigationPropTypes';
 import NavigationStateUtils from './NavigationStateUtils';
 import NavigationTransitioner from './NavigationTransitioner';
 
-const NavigationExperimental = {
+export const NavigationExperimental = {
   // Core
   StateUtils: NavigationStateUtils,
 

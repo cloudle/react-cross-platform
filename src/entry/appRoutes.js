@@ -6,7 +6,7 @@ import { colors } from '../util';
 import * as Actions from '../store/actions';
 import * as appActions from '../store/action/app';
 import * as routerActions from '../store/action/nativeRouter';
-import { NavigationExperimental } from '../components/universal';
+import { NavigationExperimental } from '../components';
 
 import NavigationHeader from '../components/NavigationHeader';
 import Welcome from '../scene/welcome';

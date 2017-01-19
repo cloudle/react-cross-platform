@@ -1,4 +1,4 @@
-import I18nManager from './I18nManager';
+import { I18nManager } from 'react-native';
 
 import type  {
   NavigationSceneRendererProps,

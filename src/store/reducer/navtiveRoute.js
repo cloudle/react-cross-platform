@@ -1,5 +1,5 @@
 import * as Actions from '../actions';
-import { NavigationExperimental } from '../../components/universal';
+import { NavigationExperimental } from '../../components';
 import { initialRoute, routes, collectionInsert } from '../../util';
 
 const { StateUtils } = NavigationExperimental;

@@ -3,7 +3,7 @@ import { StyleSheet } from 'react-native';
 
 import { colors } from '../util';
 import * as routerActions from '../store/action/nativeRouter';
-import { NavigationExperimental } from './universal';
+import { NavigationExperimental } from './index';
 const { Header: NavigationHeader } = NavigationExperimental;
 import NavigationBackButton from '../components/NavigationBackButton';
 

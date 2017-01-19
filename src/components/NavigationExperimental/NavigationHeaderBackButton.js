@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
   button: {
     height: 24,
     width: 24,
-    margin: Platform.OS === 'ios' ? 10 : 16,
+    margin: new Set(['ios', 'web']).has(Platform.OS) ? 10 : 16,
     resizeMode: 'contain',
     transform: [{scaleX: I18nManager.isRTL ? -1 : 1}],
   }
