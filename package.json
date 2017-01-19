@@ -6,23 +6,27 @@
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "test": "jest",
     "web": "node webpack.devserver",
-    "admin": "TYPE=admin PORT=4000 node webpack.devserver",
+    "admin": "TYPE=admin PORT=3000 node webpack.devserver",
     "web-vendor": "webpack --config webpack.vendor.config.js",
     "ios": "react-native run-ios",
     "android": "react-native run-android"
   },
   "dependencies": {
     "babel-polyfill": "^6.20.0",
+    "clamp": "^1.0.1",
+    "file-loader": "^0.9.0",
     "history": "^4.5.1",
     "immutable": "^3.8.1",
     "react": "~15.4.0-rc.4",
     "react-native": "0.40.0",
+    "react-native-drawer": "^2.3.0",
     "react-native-web": "0.0.68",
     "react-redux": "^5.0.2",
     "react-router": "^4.0.0-alpha.6",
     "react-router-addons-controlled": "0.0.1",
     "redux": "^3.6.0",
-    "redux-logger": "^2.7.4"
+    "redux-logger": "^2.7.4",
+    "tinycolor2": "^1.4.1"
   },
   "devDependencies": {
     "babel-jest": "18.0.0",

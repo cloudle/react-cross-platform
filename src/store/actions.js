@@ -1,9 +1,8 @@
-export const IncreaseCounter          = 'APP:INCREASE-COUNTER';
-export const RouterNavigate           = 'APP:ROUTER-NAVIGATE';
-export const RouterPush               = 'APP:ROUTER-PUSH';
-export const RouterPop                = 'APP:ROUTER-POP';
-export const RouterReset              = 'APP:ROUTER-RESET';
+export const IncreaseCounter                = 'APP:INCREASE-COUNTER';
 
-export const BrowserNavigate          = 'APP:BROWSER-NAVIGATE';
-export const NativePush               = 'APP:NATIVE-PUSH';
-export const NativePop                = 'APP:NATIVE-POP';
+export const BrowserRouterNavigate          = 'ROUTER:BROWSER-NAVIGATE';
+export const NativeRouterPush               = 'ROUTER:NATIVE-PUSH';
+export const NativeRouterPop                = 'ROUTER:NATIVE-POP';
+export const NativeRouterJumpToIndex        = 'ROUTER:NATIVE-JUMP-TO-INDEX';
+export const NativeRouterJumpTo             = 'ROUTER:NATIVE-JUMP-TO';
+export const NativeRouterReset              = 'ROUTER:NATIVE-RESET';

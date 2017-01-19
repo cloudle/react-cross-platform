@@ -13,6 +13,7 @@ module.exports = {
 			'react', 'react-native-web', 'react-dom',
 			'react-router', 'react-router-addons-controlled',
 			'redux', 'react-redux', 'immutable', 'history',
+			'tinycolor2', 'clamp',
 			...devVendors,
 		],
 	},
