@@ -9,9 +9,10 @@ const devVendors = [
 module.exports = {
 	entry: {
 		'vendor': [
-			'babel-polyfill',
+			'babel-polyfill', 'redux-logger',
 			'react', 'react-native-web', 'react-dom',
-			'redux', 'react-redux',
+			'react-router', 'react-router-addons-controlled',
+			'redux', 'react-redux', 'immutable', 'history',
 			...devVendors,
 		],
 	},

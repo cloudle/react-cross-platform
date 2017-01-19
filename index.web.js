@@ -1,7 +1,7 @@
 import 'babel-polyfill';
 import React, { Component } from 'react';
 import { AppRegistry, View, Text, AsyncStorage } from 'react-native';
-import wings from './src/app';
+import wings from './src/components/Router';
 
 AppRegistry.registerComponent('wings', () => wings);
 AppRegistry.runApplication('wings', {

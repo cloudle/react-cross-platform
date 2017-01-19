@@ -15,7 +15,7 @@ new WebpackDevServer(webpack(config), {
 		hash:           false,
 		timings:        true,
 		chunks:         true,
-		chunkModules:   false
+		chunkModules:   false,
 	},
 	quiet: false,
 	noInfo: false,

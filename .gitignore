@@ -3,7 +3,10 @@
 .DS_Store
 
 # Xcode
-#
+
+# Webpack
+web/.happypack
+
 build/
 *.pbxuser
 !default.pbxuser

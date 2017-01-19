@@ -1,5 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
+const happypack = require('happypack');
 const DefinePlugin = require('webpack/lib/DefinePlugin');
 const publicPath = 'http://0.0.0.0:3000/';
 
@@ -14,6 +15,12 @@ const hot = [
 ];
 
 let plugins = [
+	// new happypack({
+	// 	loaders: prod ? ['babel'] : ['react-hot', 'babel'],
+	// 	tempDir: 'web/.happypack',
+	// 	cachePath: 'web/.happypack/cache-[id].json',
+	// 	threads: 4,
+	// }),
 	new DefinePlugin({
 		ENV: JSON.stringify(env)
 	}),
@@ -29,7 +36,8 @@ if (env === 'dev') {
 }
 
 module.exports = {
-	devtool: prod ? null : 'source-map',
+	cache: true,
+	devtool: prod ? null : 'eval-source-map',
 	entry: {
 		app: prod ? [entry] : [...hot, entry],
 	},
@@ -37,6 +45,7 @@ module.exports = {
 		publicPath: publicPath,
 		path: path.join(__dirname, 'web'),
 		filename: '[name].bundle.js',
+		chunkFilename: "[name].js"
 	},
 	resolve: {
 		alias: {
