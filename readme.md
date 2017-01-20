@@ -15,3 +15,6 @@ listen: listen(listener)
 location: Object
 push: push(path,state)
 replace: replace(path,state)
+
+**react-native-vector-icons web support**
+https://github.com/oblador/react-native-vector-icons/pull/133

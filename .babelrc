@@ -1,7 +1,7 @@
 {
   "presets": ["react-native"],
   "plugins": [
-    [ "transform-react-remove-prop-types", { "mode": "wrap" } ],
+    ["transform-react-remove-prop-types", { "mode": "wrap" }],
     "transform-decorators-legacy",
     "transform-function-bind"
   ]

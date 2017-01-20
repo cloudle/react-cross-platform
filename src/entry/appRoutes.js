@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, TouchableOpacity, Text } from 'react-native';
+import { View, TouchableOpacity, Text, StyleSheet, AsyncStorage } from 'react-native';
 
 import { connect } from 'react-redux';
 import { colors } from '../util';
@@ -8,7 +8,11 @@ import * as appActions from '../store/action/app';
 import * as routerActions from '../store/action/nativeRouter';
 import { NavigationExperimental } from '../components';
 
-import NavigationHeader from '../components/NavigationHeader';
+import MaterialsIcon from 'react-native-vector-icons/MaterialIcons';
+import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome';
+import { Fumi, Kohana, Makiko } from 'react-native-textinput-effects';
+import Drawer from 'react-native-drawer';
+import NavigationHeader from '../shared/NavigationHeader';
 import Welcome from '../scene/welcome';
 import Login from '../scene/login';
 
@@ -19,13 +23,28 @@ import Login from '../scene/login';
 })
 
 export default class NativeRoutes extends Component {
+	async componentWillMount () {
+		await AsyncStorage.getItem("sysConfig");
+	}
+
 	render () {
-		return <NavigationExperimental.CardStack
-			navigationState={this.props.nativeRoute}
-			renderScene={this::renderScene}
-			renderHeader={this::renderHeader}
-			gestureResponseDistance={50}
-			onNavigateBack={() => routerActions.pop()}/>
+		return <Drawer
+			side="right"
+			negotiatePan={true}
+			panOpenMask={0.2}
+			tapToClose={true}
+			openDrawerOffset={0.2}
+			content={<Menu/>}
+			tweenHandler={Drawer.tweenPresets.parallax}>
+
+			<NavigationExperimental.CardStack
+				style={styles.navigatorStyle}
+				navigationState={this.props.nativeRoute}
+				renderScene={this::renderScene}
+				renderHeader={this::renderHeader}
+				gestureResponseDistance={50}
+				onNavigateBack={() => routerActions.pop()}/>
+		</Drawer>
 	}
 
 	navigate (action, route) {
@@ -33,6 +52,19 @@ export default class NativeRoutes extends Component {
 			type: action,	route: route,
 		});
 	};
+}
+
+function Menu () {
+	return <View style={{backgroundColor: "#fefefe", flex: 1}}>
+		<Text>Hello!!</Text>
+		<Fumi
+			style={{borderRadius: 3, margin: 5}}
+			label={'Course Name'}
+			iconClass={FontAwesomeIcon}
+			iconName={'university'}
+			iconColor={'#f95a25'}
+		/>
+	</View>
 }
 
 function renderScene (props) {
@@ -64,10 +96,13 @@ const About = ({ navigate, route }) => (
 	</View>
 );
 
-const styles = {
+const styles = StyleSheet.create({
 	container: {
 		justifyContent: 'center',
 		alignItems: 'center',
 		flex: 1
 	},
-};
+	navigatorStyle: {
+
+	}
+});

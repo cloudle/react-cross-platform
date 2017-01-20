@@ -3,9 +3,9 @@ import { StyleSheet } from 'react-native';
 
 import { colors } from '../util';
 import * as routerActions from '../store/action/nativeRouter';
-import { NavigationExperimental } from './index';
+import { NavigationExperimental } from '../components';
 const { Header: NavigationHeader } = NavigationExperimental;
-import NavigationBackButton from '../components/NavigationBackButton';
+import NavigationBackButton from './NavigationBackButton';
 
 export default class Header extends Component {
 	render () {

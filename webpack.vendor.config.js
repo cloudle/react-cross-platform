@@ -13,8 +13,36 @@ module.exports = {
 			'react', 'react-native-web', 'react-dom',
 			'react-router', 'react-router-addons-controlled',
 			'redux', 'react-redux', 'immutable', 'history',
+			'react-native-vector-icons',
+			'react-native-drawer',
+			'react-native-textinput-effects',
 			'tinycolor2', 'clamp',
 			...devVendors,
+		],
+	},
+
+	resolve: {
+		alias: {
+			'react-native': 'react-native-web',
+		},
+		modulesDirectories: ['node_modules'],
+		extensions: ['', '.js']
+	},
+
+	module: {
+		loaders: [
+			{
+				test: /\.js?$/,
+				loaders: ['babel'],
+			},
+			{
+				test: /\.(png|jpg|svg|ttf)$/,
+				loader: 'file?name=[name].[ext]'
+			},
+			{
+				test: /\.json/,
+				loader: 'json'
+			}
 		],
 	},
 

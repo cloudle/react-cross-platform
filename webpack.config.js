@@ -16,12 +16,12 @@ const hot = [
 ];
 
 let plugins = [
-	// new happypack({
-	// 	loaders: prod ? ['babel'] : ['react-hot', 'babel'],
-	// 	tempDir: 'web/.happypack',
-	// 	cachePath: 'web/.happypack/cache-[id].json',
-	// 	threads: 4,
-	// }),
+	new happypack({
+		loaders: prod ? ['babel'] : ['react-hot', 'babel'],
+		tempDir: 'web/.happypack',
+		cachePath: 'web/.happypack/cache-[id].json',
+		threads: 4,
+	}),
 	new DefinePlugin({
 		ENV: JSON.stringify(env)
 	}),
@@ -32,6 +32,7 @@ let plugins = [
 ];
 
 if (env === 'dev') {
+	plugins.push(new webpack.optimize.OccurenceOrderPlugin());
 	plugins.push(new webpack.HotModuleReplacementPlugin());
 	plugins.push(new webpack.NoErrorsPlugin());
 }
@@ -59,18 +60,16 @@ module.exports = {
 		loaders: [
 			{
 				test: /\.js?$/,
-				loaders: prod ? ['babel'] : ['react-hot', 'babel'],
-				exclude: path.join(__dirname, 'node_modules'),
-				include: [
-					path.join(__dirname, 'src'),
-					path.join(__dirname, 'index.web.js'),
-					path.join(__dirname, 'index.admin.js'),
-				]
+				loaders: ['happypack/loader'],
 			},
 			{
-				test: /\.(png|jpg|svg)$/,
+				test: /\.(png|jpg|svg|ttf)$/,
 				loader: 'file?name=[name].[ext]'
 			},
+			{
+				test: /\.json/,
+				loader: 'json'
+			}
 		],
 	},
 };
