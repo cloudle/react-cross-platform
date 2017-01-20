@@ -19,7 +19,7 @@ for (let key of Object.keys(Actions)) {
 const reduxLoggerMiddleware = applyMiddleware(logger({
 	collapsed: (getState, action) => {
 		return [
-				Actions.RouterNavigate,
+				Actions.BrowserRouterNavigate,
 			].indexOf(action.type) >= 0;
 	},
 	predicate: (getState, action) => {
@@ -28,7 +28,7 @@ const reduxLoggerMiddleware = applyMiddleware(logger({
 		}
 
 		return [
-				// Actions.RouterNavigate,
+				// Actions.BrowserRouterNavigate,
 			].indexOf(action.type) < 0;
 	},
 }));

@@ -19,7 +19,7 @@ export class RippleEffect extends Component {
 
   render () {
     let opacity = this.state.expandAnimation.interpolate({
-      inputRange: [0, 0.5, 1], outputRange: [0.4, 0.2, 0]
+      inputRange: [0, 0.5, 1], outputRange: [0.3, 0.2, 0]
     }), scale = this.state.expandAnimation.interpolate({
         inputRange: [0, 0.5, 1], outputRange: [0, 0.2, 1]
     }), styles = {

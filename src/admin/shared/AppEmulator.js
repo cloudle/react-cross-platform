@@ -12,21 +12,23 @@ export default class AppEmulator extends Component {
 	}
 
 	componentWillMount () {
-		this.getTimeInterval = instantInterval(this::this.tick, 60000);
+		this.getTimeInterval = instantInterval(this::this.tick, 1000);
+	}
+
+	componentWillUnmount () {
+		this.getTimeInterval && clearInterval(this.getTimeInterval);
 	}
 
 	tick () {
-		this.setState({now: moment().format('H:MM A')})
+		this.setState({now: moment().format('H:mm:ss A')})
 	}
 
   render () {
-    return <View style={styles.wrapper}>
-	      <View style={styles.appContainer}>
-		      <App/>
-		      {this.renderLeftStatus()}
-		      {this.renderRightStatus()}
-		      {this.renderTitleStatus()}
-	      </View>
+    return <View style={styles.appContainer}>
+      <App/>
+      {this.renderLeftStatus()}
+      {this.renderRightStatus()}
+      {this.renderTitleStatus()}
     </View>
   }
 
@@ -39,9 +41,17 @@ export default class AppEmulator extends Component {
   }
 
   renderRightStatus () {
-	  return <View style={[styles.statusBarContainer, {justifyContent: 'flex-end'}]}>
-		  <Icon style={styles.statusBarIcon} size={12} name="ios-alarm-outline"/>
-		  <Icon style={[styles.statusBarIcon, {transform: [{scaleX: 1.3}]}]} size={18} name="ios-battery-full"/>
+	  return <View
+		  style={[styles.statusBarContainer, {justifyContent: 'flex-end'}]}>
+		  <Icon
+			  size={11} name="ios-alarm-outline"
+			  style={styles.statusBarIcon}/>
+		  <Icon
+			  size={18} name="ios-battery-full"
+			  style={[styles.statusBarIcon, {
+			  	marginLeft: 8,
+			  	transform: [{scaleX: 1.3}]
+			  }]}/>
 	  </View>
   }
 
@@ -53,13 +63,6 @@ export default class AppEmulator extends Component {
 }
 
 const styles = StyleSheet.create({
-	wrapper: {
-		justifyContent: 'center',
-		alignItems: 'center',
-		backgroundColor: '#333',
-		flex: 1,
-		flexDirection: 'row',
-	},
 	appContainer: {
 		width: 320, height: 568, //Iphone 5s
 		overflow: 'hidden',
@@ -70,7 +73,7 @@ const styles = StyleSheet.create({
 		width: 320, height: 24,
 		position: 'absolute', top: 0, left: 0,
 		flexDirection: 'row',
-		paddingLeft: 5, paddingRight: 5,
+		paddingLeft: 10, paddingRight: 10,
 		flex: 1,
 	},
 	statusBarTitle: {

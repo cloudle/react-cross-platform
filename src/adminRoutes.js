@@ -10,7 +10,7 @@ import { adminStyles } from 'admin/utils';
 
 import NavigationPane from 'admin/shared/NavigationPane';
 import GraphiQL from 'admin/shared/Graphiql';
-import AppEmulator from 'admin/shared/AppEmulator';
+import Emulator from 'admin/scene/emulator';
 import Welcome from 'scene/welcome';
 import Login from 'scene/login';
 
@@ -32,7 +32,7 @@ export default class BrowserRoutes extends Component {
 				<NavigationPane/>
 				<Match pattern="/login" component={Login}/>
 				<Match exactly pattern="/welcome" component={Welcome}/>
-				<Match exactly pattern="/emulator" component={AppEmulator}/>
+				<Match exactly pattern="/emulator" component={Emulator}/>
 				<Match exactly pattern="/api" component={GraphiQL}/>
 				<Miss component={Welcome}/>
 			</View>

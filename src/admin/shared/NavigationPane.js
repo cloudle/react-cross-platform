@@ -55,7 +55,6 @@ const menus = [
 		route: '/api' },
 ];
 
-console.log(colors);
 const styles = StyleSheet.create({
 	container: {
 		backgroundColor: '#1f2532',

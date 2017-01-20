@@ -76,7 +76,7 @@ function renderHeader (sceneProps) {
 const Home = ({ navigate, route }) => {
 	return (
 		<View style={styles.container}>
-			<Text onPress={() => appActions.increaseCounter()}>Hello from Home! {route.pattern}</Text>
+			<Text onPress={() => appActions.increaseCounter()}>Hello from Home!! {route.pattern}</Text>
 			<Text onPress={() => navigate(Actions.NativeRouterPush, { key: 'About', pattern: '/about' })}>Go To About</Text>
 		</View>
 	)
