@@ -54,7 +54,7 @@ function Main () {
 
 const NavLink = ({to, children}, context) => {
 	const pressHandler = () => {
-		// console.log(context);
+		console.log(context);
 		context.router.transitionTo(to);
 	};
 

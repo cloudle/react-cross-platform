@@ -4,8 +4,10 @@
 
 # Xcode
 
-# Webpack
-web/.happypack
+# Web
+web
+!web/admin.html
+!web/app.html
 
 build/
 *.pbxuser

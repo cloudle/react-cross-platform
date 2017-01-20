@@ -45,7 +45,7 @@ export default class BrowserRoutes extends Component {
 
 function onRouterChange (location, action) {
 	this.props.dispatch({
-		type: Actions.BrowserNavigate,
+		type: Actions.BrowserRouterNavigate,
 		action: action == 'SYNC' ? this.props.action : action,
 		location,
 	});

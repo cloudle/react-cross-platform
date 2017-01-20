@@ -17,7 +17,7 @@ export class RouterLink extends Component {
 		if (this.props.location.pathname == this.props.to) return;
 
 		this.props.dispatch({
-			type: Actions.BrowserNavigate,
+			type: Actions.BrowserRouterNavigate,
 			location: { pathname: this.props.to },
 			action: 'PUSH',
 		});
