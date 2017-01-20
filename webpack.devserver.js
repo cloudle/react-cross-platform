@@ -2,6 +2,7 @@ const webpack = require('webpack');
 const WebpackDevServer = require('webpack-dev-server');
 const config = require('./webpack.config');
 const port = process.env.PORT || 3000;
+const logMode = process.env.LOG;
 const buildType = process.env.TYPE || 'app';
 
 new WebpackDevServer(webpack(config), {
@@ -18,7 +19,7 @@ new WebpackDevServer(webpack(config), {
 		hash:           false,
 		timings:        true,
 		chunks:         true,
-		chunkModules:   false, /*[248 | 75]*/
+		chunkModules:   !!logMode, /*[248 | 75]*/
 	},
 	quiet: false,
 	noInfo: false,

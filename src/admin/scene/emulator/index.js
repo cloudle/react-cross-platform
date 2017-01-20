@@ -1,10 +1,16 @@
 import React, { Component } from 'react';
 import { Animated, Image, View, Text, StyleSheet } from 'react-native';
 
+import { connect } from 'utils';
 import { adminStyles } from 'admin/utils';
 import { scene } from 'admin/decorators';
 import AppEmulator from 'admin/shared/AppEmulator';
 
+@connect(({app}) => {
+	return {
+		counter: app.get('counter'),
+	}
+})
 @scene({enterSpeed: 800, delay: 200})
 export default class EmulatorScene extends Component {
 	constructor (props) {
@@ -51,7 +57,7 @@ export default class EmulatorScene extends Component {
 				onLayout={this::this.onSceneContentLayout}
 				style={[adminStyles.contentContainer, styles.contentContainer]}>
 				<View style={styles.inspectorArea}>
-
+					<Text>inspector {this.props.counter}!</Text>
 				</View>
 				<View style={styles.emulatorArea}>
 					<Animated.View style={emulatorStyles}>
@@ -73,7 +79,7 @@ const styles = StyleSheet.create({
 		flex: 1,
 	},
 	inspectorArea: {
-		flex: 1,
+		flex: 1, padding: 5,
 		backgroundColor: 'white',
 	},
 	emulatorArea: {

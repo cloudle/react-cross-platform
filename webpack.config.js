@@ -2,6 +2,7 @@ const path = require('path');
 const webpack = require('webpack');
 const happypack = require('happypack');
 const DefinePlugin = require('webpack/lib/DefinePlugin');
+const DashboardPlugin = require('webpack-dashboard/plugin');
 
 const env = process.env.ENV || 'dev';
 const port = process.env.PORT || 3000;
@@ -35,6 +36,7 @@ if (env === 'dev') {
 	plugins.push(new webpack.optimize.OccurenceOrderPlugin());
 	plugins.push(new webpack.HotModuleReplacementPlugin());
 	plugins.push(new webpack.NoErrorsPlugin());
+	plugins.push(new DashboardPlugin());
 }
 
 let buildEntry = {}; buildEntry[buildType] = prod ? [entry] : [...hot, entry];

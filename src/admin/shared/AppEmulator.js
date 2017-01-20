@@ -12,7 +12,7 @@ export default class AppEmulator extends Component {
 	}
 
 	componentWillMount () {
-		this.getTimeInterval = instantInterval(this::this.tick, 1000);
+		this.getTimeInterval = instantInterval(this::this.tick, 60000);
 	}
 
 	componentWillUnmount () {
@@ -20,7 +20,7 @@ export default class AppEmulator extends Component {
 	}
 
 	tick () {
-		this.setState({now: moment().format('H:mm:ss A')})
+		this.setState({now: moment().format('H:mm A')})
 	}
 
   render () {
@@ -73,13 +73,13 @@ const styles = StyleSheet.create({
 		width: 320, height: 24,
 		position: 'absolute', top: 0, left: 0,
 		flexDirection: 'row',
-		paddingLeft: 10, paddingRight: 10,
+		paddingLeft: 5, paddingRight: 5,
 		flex: 1,
 	},
 	statusBarTitle: {
 		flex: 1, lineHeight: 24,
 		color: 'white',
-		fontSize: 10,
+		fontSize: 12,
 		fontWeight: '400',
 		fontFamily: 'Helvetica',
 		letterSpacing: 0.5,

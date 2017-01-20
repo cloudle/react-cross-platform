@@ -7,6 +7,8 @@ export const adminStyles = StyleSheet.create({
 	contentContainer: {
 		marginLeft: 'auto',
 		marginRight: 'auto',
-		minWidth: 1024,
+		maxWidth: 1024,
+		width: '100%',
+		// minWidth: 1024,
 	}
 });

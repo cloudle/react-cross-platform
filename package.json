@@ -6,7 +6,8 @@
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "test": "jest",
     "web": "node webpack.devserver",
-    "admin": "TYPE=admin PORT=3000 node webpack.devserver",
+    "admin": "TYPE=admin PORT=3000 webpack-dashboard -- node webpack.devserver",
+    "admin-log": "TYPE=admin LOG=true PORT=3000 node webpack.devserver",
     "web-vendor": "webpack --config webpack.vendor.config.js",
     "admin-vendor": "TYPE=admin webpack --config webpack.vendor.config.js",
     "ios": "react-native run-ios",
@@ -54,6 +55,7 @@
     "react-test-renderer": "~15.4.0-rc.4",
     "style-loader": "^0.13.1",
     "webpack": "^1.14.0",
+    "webpack-dashboard": "^0.2.1",
     "webpack-dev-server": "^1.16.2"
   },
   "jest": {
