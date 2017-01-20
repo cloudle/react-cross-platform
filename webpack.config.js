@@ -17,12 +17,12 @@ const hot = [
 ];
 
 let plugins = [
-	new happypack({
-		loaders: prod ? ['babel'] : ['react-hot', 'babel'],
-		tempDir: 'web/.happypack',
-		cachePath: 'web/.happypack/cache-[id].json',
-		threads: 4,
-	}),
+	// new happypack({
+	// 	loaders: prod ? ['babel'] : ['react-hot', 'babel'],
+	// 	tempDir: 'web/.happypack',
+	// 	cachePath: 'web/.happypack/cache-[id].json',
+	// 	threads: 4,
+	// }),
 	new DefinePlugin({
 		ENV: JSON.stringify(env)
 	}),
@@ -62,7 +62,8 @@ module.exports = {
 		loaders: [
 			{
 				test: /\.js?$/,
-				loaders: ['happypack/loader'],
+				loaders: prod ? ['babel'] : ['react-hot', 'babel'],
+				// loaders: ['happypack/loader'],
 			},
 			{
 				test: /\.(png|jpg|svg|ttf)$/,

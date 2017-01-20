@@ -57,7 +57,7 @@ export default class EmulatorScene extends Component {
 				onLayout={this::this.onSceneContentLayout}
 				style={[adminStyles.contentContainer, styles.contentContainer]}>
 				<View style={styles.inspectorArea}>
-					<Text>inspector {this.props.counter}!</Text>
+					<Text>inspector {this.props.counter}!!!!</Text>
 				</View>
 				<View style={styles.emulatorArea}>
 					<Animated.View style={emulatorStyles}>
