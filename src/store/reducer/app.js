@@ -1,7 +1,7 @@
 import { Platform } from 'react-native';
 import { createBrowserHistory, createMemoryHistory } from 'history';
 import Immutable from 'immutable';
-import * as Actions from '../actions';
+import * as Actions from 'store/actions';
 
 export let history = Platform.OS == 'web' ?
 	createBrowserHistory() : createMemoryHistory();

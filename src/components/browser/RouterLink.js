@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { TouchableOpacity, Text } from 'react-native';
 import { connect } from 'react-redux';
-import * as Actions from '../../store/actions';
+import * as Actions from 'store/actions';
 
 @connect(({browserRoute}) => ({
 	location: browserRoute.get('location'),

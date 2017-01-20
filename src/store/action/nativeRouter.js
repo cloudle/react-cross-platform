@@ -1,5 +1,5 @@
-import store from '../index';
-import * as Actions from '../actions';
+import store from 'store';
+import * as Actions from 'store/actions';
 
 export function push (route) {
 	store.dispatch({ type: Actions.NativeRouterPop, route });

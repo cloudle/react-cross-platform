@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View, ScrollView, Text, StyleSheet } from 'react-native';
 import { connect } from 'react-redux';
-import * as Actions from '../../store/actions';
+import * as Actions from 'store/actions';
 
 @connect(({app}) => {
 	return {

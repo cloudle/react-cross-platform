@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { StyleSheet } from 'react-native';
 
-import { colors } from '../util';
-import * as routerActions from '../store/action/nativeRouter';
-import { NavigationExperimental } from '../components';
+import { colors } from 'utils';
+import * as routerActions from 'store/action/nativeRouter';
+import { NavigationExperimental } from 'components';
 const { Header: NavigationHeader } = NavigationExperimental;
-import NavigationBackButton from './NavigationBackButton';
+import NavigationBackButton from 'shared/NavigationBackButton';
 
 export default class Header extends Component {
 	render () {

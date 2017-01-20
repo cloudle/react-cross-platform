@@ -1,6 +1,6 @@
-import * as Actions from '../actions';
-import { NavigationExperimental } from '../../components';
-import { initialRoute, routes, collectionInsert } from '../../util';
+import * as Actions from 'store/actions';
+import { NavigationExperimental } from 'components';
+import { initialRoute, routes, collectionInsert } from 'utils';
 
 const { StateUtils } = NavigationExperimental;
 const initialState = {

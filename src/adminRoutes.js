@@ -3,13 +3,13 @@ import { View, Text } from 'react-native';
 import { ControlledBrowserRouter } from 'react-router-addons-controlled';
 import { Match, Miss } from 'react-router';
 
-import store, { history } from './store';
-import { connect } from './util';
-import * as Actions from './store/actions';
+import store, { history } from 'store';
+import { connect } from 'utils';
+import * as Actions from 'store/actions';
 
-import RouterLink from './components/browser/RouterLink';
-import Welcome from './scene/welcome';
-import Login from './scene/login';
+import RouterLink from 'components/browser/RouterLink';
+import Welcome from 'scene/welcome';
+import Login from 'scene/login';
 
 @connect(({browserRoute}) => {
 	return {

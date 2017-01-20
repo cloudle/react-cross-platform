@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { StatusBar } from 'react-native';
 import { Provider } from 'react-redux';
-import store from './store';
-import { isIos, isAndroid, isBrowser } from './util';
-import Routes from './appRoutes';
+import store from 'store';
+import { isIos, isAndroid, isBrowser } from 'utils';
+import Routes from 'appRoutes';
 
 export default function () {
 	return <Provider store={store}>

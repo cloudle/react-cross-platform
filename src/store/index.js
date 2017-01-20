@@ -1,4 +1,4 @@
-export * from './reducer/app';
+export * from 'store/reducer/app';
 
 import * as Actions from './actions';
 import { createStore, compose, combineReducers, applyMiddleware } from 'redux';

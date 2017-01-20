@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { View, ScrollView, TouchableHighlight, Text, StyleSheet } from 'react-native';
 import { connect } from 'react-redux';
 import { Match, Miss } from 'react-router';
-import * as Actions from '../../store/actions';
+import * as Actions from 'store/actions';
 
 @connect(({app}) => {
 	return {
