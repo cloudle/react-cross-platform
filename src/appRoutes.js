@@ -2,19 +2,19 @@ import React, { Component } from 'react';
 import { View, TouchableOpacity, Text, StyleSheet, AsyncStorage } from 'react-native';
 
 import { connect } from 'react-redux';
-import { colors } from '../util';
-import * as Actions from '../store/actions';
-import * as appActions from '../store/action/app';
-import * as routerActions from '../store/action/nativeRouter';
-import { NavigationExperimental } from '../components';
+import { colors } from './util';
+import * as Actions from './store/actions';
+import * as appActions from './store/action/app';
+import * as routerActions from './store/action/nativeRouter';
+import { NavigationExperimental } from './components';
 
 import MaterialsIcon from 'react-native-vector-icons/MaterialIcons';
 import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome';
 import { Fumi, Kohana, Makiko } from 'react-native-textinput-effects';
 import Drawer from 'react-native-drawer';
-import NavigationHeader from '../shared/NavigationHeader';
-import Welcome from '../scene/welcome';
-import Login from '../scene/login';
+import NavigationHeader from './shared/NavigationHeader';
+import Welcome from './scene/welcome';
+import Login from './scene/login';
 
 @connect(({nativeRoute}) => {
 	return {
