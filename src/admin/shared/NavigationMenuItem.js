@@ -3,6 +3,7 @@ import { View, Text, StyleSheet } from 'react-native';
 
 import { connect } from 'utils';
 import * as Actions from 'store/actions';
+import { ResponsibleTouchArea } from 'components';
 
 @connect(({route}) => {
 	return {
@@ -15,13 +16,14 @@ export default class NavigationMenuItem extends Component {
   	const textStyle = this.props.location.pathname == this.props.route ?
 		  styles.activeTitle : styles.title;
 
-    return <View style={styles.container}>
+    return <ResponsibleTouchArea
+	    onPress={this::navigate}
+      innerStyle={styles.container}>
       <Text
-	      onPress={this::navigate}
 	      style={textStyle}>
 	      {this.props.title}
       </Text>
-    </View>
+    </ResponsibleTouchArea>
   }
 }
 
@@ -35,13 +37,15 @@ function navigate () {
 
 const titleTextBase = {
 	lineHeight: 50,
-	fontSize: 13, fontWeight: '300',
+	fontSize: 13,
 };
 
 const styles = StyleSheet.create({
 	container: {
 		padding: 5,
 		paddingLeft: 15, paddingRight: 15,
+		minWidth: 80,
+		alignItems: 'center',
 	},
 	title: {
 		...titleTextBase,
@@ -49,6 +53,6 @@ const styles = StyleSheet.create({
 	},
 	activeTitle: {
 		...titleTextBase,
-		color: '#acb1be'
+		color: '#acb1be',
 	}
 });

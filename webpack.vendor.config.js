@@ -6,6 +6,7 @@ const adminVendors = buildType == 'admin' ? [
 	'graphql',
 	'graphiql',
 	'graphiql/graphiql.css',
+	'./src/admin/shared/appbar-light.png',
 ] : [];
 
 const devVendors = [
@@ -20,7 +21,6 @@ module.exports = {
 			'babel-polyfill', 'redux-logger', 'isomorphic-fetch',
 			'react', 'react-dom',
 			'react-native-web',
-			'react-native-web-player',
 			'react-router', 'react-router-addons-controlled',
 			'redux', 'react-redux', 'immutable', 'history',
 			'react-native-vector-icons',

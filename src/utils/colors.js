@@ -1,8 +1,8 @@
 import tinyColor from 'tinycolor2';
 
 const main = '#3b5998';
-const lighterMain = tinyColor(main).lighten(15);
-const darkerMain = tinyColor(main).darken(10);
+const lighterMain = tinyColor(main).lighten(15).toHexString();
+const darkerMain = tinyColor(main).darken(10).toHexString();
 
 export let colors = {
 	main,

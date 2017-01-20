@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
 import { adminStyles } from 'admin/utils';
+import { colors } from 'utils';
+
 import MenuItem from './NavigationMenuItem';
 // @connect(({app}) => {
 // 	return {
@@ -53,6 +55,7 @@ const menus = [
 		route: '/api' },
 ];
 
+console.log(colors);
 const styles = StyleSheet.create({
 	container: {
 		backgroundColor: '#1f2532',

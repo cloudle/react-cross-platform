@@ -57,13 +57,6 @@ export default class NativeRoutes extends Component {
 function Menu () {
 	return <View style={{backgroundColor: "#fefefe", flex: 1}}>
 		<Text>Hello!!</Text>
-		<Fumi
-			style={{borderRadius: 3, margin: 5}}
-			label={'Course Name'}
-			iconClass={FontAwesomeIcon}
-			iconName={'university'}
-			iconColor={'#f95a25'}
-		/>
 	</View>
 }
 
