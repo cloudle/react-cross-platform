@@ -11,3 +11,4 @@ export const connect = reduxConnect;
 export * from './colors';
 export * from './routes';
 export * from './collection';
+export * from './wire';
