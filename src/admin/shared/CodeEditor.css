@@ -1,15 +1,15 @@
-.ReactCodeMirror { height: 100%; }
-
-.CodeMirror {
-  font-size: 13px;
-  font-family: 'Fira Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;
-}
+.codeEditor { height: 100%; }
 
 .cm-s-wings.CodeMirror {
   background-color: #282C34;
   color: #C5C8C6;
   height: 100%;
+  font-size: 14px;
+  font-family: 'Fira Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;
 }
+
+.cm-s-wings.CodeMirror .CodeMirror-sizer { margin-top: 12px; }
+
 .cm-s-wings .CodeMirror-gutters {
   background: #262a33;
   color: #C5C8C6;

@@ -70,16 +70,17 @@ const styles = StyleSheet.create({
 		borderRadius: 3,
 	},
 	statusBarContainer: {
-		width: 320, height: 24,
+		width: 320, height: 20,
 		position: 'absolute', top: 0, left: 0,
 		flexDirection: 'row',
 		paddingLeft: 5, paddingRight: 5,
 		flex: 1,
+		backgroundColor: 'rgba(0, 0, 0, 0.02)'
 	},
 	statusBarTitle: {
-		flex: 1, lineHeight: 24,
+		flex: 1, lineHeight: 20,
 		color: 'white',
-		fontSize: 12,
+		fontSize: 11,
 		fontWeight: '400',
 		fontFamily: 'Helvetica',
 		letterSpacing: 0.5,
@@ -87,7 +88,7 @@ const styles = StyleSheet.create({
 	},
 	statusBarIcon: {
 		color: 'white',
-		lineHeight: 24,
+		lineHeight: 20,
 		marginLeft: 5, marginRight: 5,
 	}
 });

@@ -18,6 +18,7 @@
     "accounting": "^0.4.1",
     "babel-polyfill": "^6.20.0",
     "clamp": "^1.0.1",
+    "codemirror-graphql": "^0.6.1",
     "codemirror-mode-elixir": "^1.1.0",
     "file-loader": "^0.9.0",
     "graphiql": "^0.8.1",
