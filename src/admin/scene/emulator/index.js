@@ -5,11 +5,7 @@ import { connect } from 'utils';
 import { adminStyles } from 'admin/utils';
 import { scene } from 'admin/decorators';
 import AppEmulator from 'admin/shared/AppEmulator';
-import CodeMirror from 'react-codemirror';
-import 'codemirror/mode/javascript/javascript';
-import 'codemirror-mode-elixir';
-import 'codemirror-graphql/mode';
-import './wings.css';
+import CodeEditor from 'admin/shared/CodeEditor';
 
 @connect(({app}) => {
 	return {
@@ -21,7 +17,7 @@ export default class EmulatorScene extends Component {
 	constructor (props) {
 	  super(props);
 	  this.state = {
-	  	shouldRenderEditor: false,
+	  	layoutFinished: false,
 			spaceTop: 0,
 		  spaceWidth: 0,
 		  spaceHeight: 0,
@@ -35,7 +31,7 @@ export default class EmulatorScene extends Component {
 
 	onSceneContentLayout (e) {
 		let { x, y, width, height } = e.nativeEvent.layout;
-		this.setState({spaceWidth: x, shouldRenderEditor: true});
+		this.setState({spaceWidth: x, layoutFinished: true});
 	}
 
 	render () {
@@ -62,10 +58,9 @@ export default class EmulatorScene extends Component {
 			<View
 				onLayout={this::this.onSceneContentLayout}
 				style={[adminStyles.contentContainer, styles.contentContainer]}>
-				<View style={styles.inspectorArea}>
-					{/*<Text>inspector {this.props.counter}!!!!</Text>*/}
-					{this.renderEditor()}
-				</View>
+				<Animated.View style={[styles.inspectorArea, {opacity}]}>
+					<CodeEditor ready={this.state.layoutFinished}/>
+				</Animated.View>
 				<View style={styles.emulatorArea}>
 					<Animated.View style={emulatorStyles}>
 						<AppEmulator/>
@@ -74,16 +69,9 @@ export default class EmulatorScene extends Component {
 			</View>
 		</View>
 	}
-
-	renderEditor () {
-		if (this.state.shouldRenderEditor) {
-			return <CodeMirror
-				style={{flex: 1}}
-				value={mirrorSource}
-				options={codeMirrorOptions}/>
-		}
-	}
 }
+
+
 
 const styles = StyleSheet.create({
 	container: {
@@ -102,21 +90,3 @@ const styles = StyleSheet.create({
 
 	}
 });
-
-const jsCode = `
-function welcome () {
-	console.log('Welcome to Emulator!');
-}`, elixirCode = `
-defmodule Wings do
-	def welcome do
-		IO.puts "Welcome to Emulator!"
-	end
-end
-`;
-
-const codeMirrorOptions = {
-	lineNumbers: true,
-	tabSize: 2,
-	mode: 'graphql',
-	theme: 'wings',
-}, mirrorSource = jsCode;

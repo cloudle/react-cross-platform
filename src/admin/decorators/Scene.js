@@ -21,7 +21,10 @@ export default function ({
 						toValue: 1,
 						duration: enterSpeed,
 						easing: Easing.out(Easing.cubic),
-					}).start();
+					}).start(() => {
+						this.setState({animationFinished: true});
+						super.animationDidFinish && super.animationDidFinish();
+					});
 				}, delay);
 
 				super.componentDidMount && super.componentDidMount();

@@ -10,7 +10,6 @@ const adminVendors = buildType == 'admin' ? [
 		'codemirror-mode-elixir',
 		'codemirror/lib/codemirror.css',
 		'codemirror/mode/javascript/javascript',
-		'',
 	] : [];
 
 const devVendors = [
@@ -53,7 +52,7 @@ module.exports = {
 				test: /\.js?$/,
 				loaders: ['babel'],
 				exclude: [
-					/node_modules\/(react-ace|codemirror-mode-elixir)/
+					/node_modules\/codemirror-mode-elixir/
 				],
 			},
 			{ test: /\.css$/, loader: "style!css" },

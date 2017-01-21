@@ -46,6 +46,7 @@
 .cm-s-wings .cm-property { color: #80CBAE; }
 .cm-s-wings .cm-qualifier { color: #DECB6B; }
 .cm-s-wings .cm-variable-3 { color: #DECB6B; }
+.cm-s-wings .cm-punctuation { color: #FFFFFF; }
 .cm-s-wings .cm-tag { color: rgba(255, 83, 112, 1); }
 .cm-s-wings .cm-error {
   color: rgba(255, 255, 255, 1.0);
