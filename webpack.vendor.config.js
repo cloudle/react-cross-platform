@@ -3,11 +3,15 @@ const webpack = require('webpack');
 const buildType = process.env.TYPE || 'app';
 
 const adminVendors = buildType == 'admin' ? [
-	'graphql',
-	'graphiql',
-	'graphiql/graphiql.css',
-	'./src/admin/shared/appbar-light.png',
-] : [];
+		'graphql',
+		'graphiql',
+		'graphiql/graphiql.css',
+		'react-codemirror',
+		'codemirror-mode-elixir',
+		'codemirror/lib/codemirror.css',
+		'codemirror/mode/javascript/javascript',
+		'',
+	] : [];
 
 const devVendors = [
 	'react-hot-loader',
@@ -48,6 +52,9 @@ module.exports = {
 			{
 				test: /\.js?$/,
 				loaders: ['babel'],
+				exclude: [
+					/node_modules\/(react-ace|codemirror-mode-elixir)/
+				],
 			},
 			{ test: /\.css$/, loader: "style!css" },
 			{

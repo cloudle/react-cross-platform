@@ -65,6 +65,7 @@ module.exports = {
 				loaders: prod ? ['babel'] : ['react-hot', 'babel'],
 				// loaders: ['happypack/loader'],
 			},
+			{ test: /\.css$/, loader: "style!css" },
 			{
 				test: /\.(png|jpg|svg|ttf)$/,
 				loader: 'file?name=[name].[ext]'
