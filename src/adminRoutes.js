@@ -6,15 +6,18 @@ import { Match, Miss } from 'react-router';
 import store, { history } from 'store';
 import { connect } from 'utils';
 import * as Actions from 'store/actions';
+import { adminStyles } from 'admin/utils';
 
-import RouterLink from 'components/browser/RouterLink';
+import NavigationPane from 'admin/shared/NavigationPane';
+import GraphiQL from 'admin/shared/Graphiql';
+import Emulator from 'admin/scene/emulator';
 import Welcome from 'scene/welcome';
 import Login from 'scene/login';
 
-@connect(({browserRoute}) => {
+@connect(({route}) => {
 	return {
-		location: browserRoute.get('location'),
-		action: browserRoute.get('action'),
+		location: route.location,
+		action: route.action,
 	}
 })
 
@@ -25,18 +28,12 @@ export default class BrowserRoutes extends Component {
 			location={this.props.location}
 			action={this.props.action}
 			onChange={this::onRouterChange}>
-			<View style={{marginTop: 24}}>
-				<View style={{padding: 10,}}>
-					<RouterLink to="/welcome">
-						<Text>Welcome</Text>
-					</RouterLink>
-					<RouterLink to="/login">
-						<Text>Login</Text>
-					</RouterLink>
-				</View>
-
+			<View style={{flex: 1}}>
+				<NavigationPane/>
 				<Match pattern="/login" component={Login}/>
 				<Match exactly pattern="/welcome" component={Welcome}/>
+				<Match exactly pattern="/emulator" component={Emulator}/>
+				<Match exactly pattern="/api" component={GraphiQL}/>
 				<Miss component={Welcome}/>
 			</View>
 		</ControlledBrowserRouter>

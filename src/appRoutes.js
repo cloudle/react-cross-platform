@@ -57,13 +57,6 @@ export default class NativeRoutes extends Component {
 function Menu () {
 	return <View style={{backgroundColor: "#fefefe", flex: 1}}>
 		<Text>Hello!!</Text>
-		<Fumi
-			style={{borderRadius: 3, margin: 5}}
-			label={'Course Name'}
-			iconClass={FontAwesomeIcon}
-			iconName={'university'}
-			iconColor={'#f95a25'}
-		/>
 	</View>
 }
 
@@ -83,7 +76,7 @@ function renderHeader (sceneProps) {
 const Home = ({ navigate, route }) => {
 	return (
 		<View style={styles.container}>
-			<Text onPress={() => appActions.increaseCounter()}>Hello from Home! {route.pattern}</Text>
+			<Text onPress={() => appActions.increaseCounter()}>Hello from Home!! {route.pattern}</Text>
 			<Text onPress={() => navigate(Actions.NativeRouterPush, { key: 'About', pattern: '/about' })}>Go To About</Text>
 		</View>
 	)

@@ -2,6 +2,7 @@ const path = require('path');
 const webpack = require('webpack');
 const happypack = require('happypack');
 const DefinePlugin = require('webpack/lib/DefinePlugin');
+const DashboardPlugin = require('webpack-dashboard/plugin');
 
 const env = process.env.ENV || 'dev';
 const port = process.env.PORT || 3000;
@@ -16,12 +17,12 @@ const hot = [
 ];
 
 let plugins = [
-	new happypack({
-		loaders: prod ? ['babel'] : ['react-hot', 'babel'],
-		tempDir: 'web/.happypack',
-		cachePath: 'web/.happypack/cache-[id].json',
-		threads: 4,
-	}),
+	// new happypack({
+	// 	loaders: prod ? ['babel'] : ['react-hot', 'babel'],
+	// 	tempDir: 'web/.happypack',
+	// 	cachePath: 'web/.happypack/cache-[id].json',
+	// 	threads: 4,
+	// }),
 	new DefinePlugin({
 		ENV: JSON.stringify(env)
 	}),
@@ -35,6 +36,7 @@ if (env === 'dev') {
 	plugins.push(new webpack.optimize.OccurenceOrderPlugin());
 	plugins.push(new webpack.HotModuleReplacementPlugin());
 	plugins.push(new webpack.NoErrorsPlugin());
+	plugins.push(new DashboardPlugin());
 }
 
 let buildEntry = {}; buildEntry[buildType] = prod ? [entry] : [...hot, entry];
@@ -49,9 +51,6 @@ module.exports = {
 		chunkFilename: "[name].js"
 	},
 	resolve: {
-		root: [
-			path.resolve('./src'),
-		],
 		alias: {
 			'react-native': 'react-native-web',
 		},
@@ -63,8 +62,10 @@ module.exports = {
 		loaders: [
 			{
 				test: /\.js?$/,
-				loaders: ['happypack/loader'],
+				loaders: prod ? ['babel'] : ['react-hot', 'babel'],
+				// loaders: ['happypack/loader'],
 			},
+			{ test: /\.css$/, loader: "style!css" },
 			{
 				test: /\.(png|jpg|svg|ttf)$/,
 				loader: 'file?name=[name].[ext]'
