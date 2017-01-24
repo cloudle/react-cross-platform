@@ -75,7 +75,7 @@ const styles = StyleSheet.create({
 		flexDirection: 'row',
 		paddingLeft: 5, paddingRight: 5,
 		flex: 1,
-		// backgroundColor: 'rgba(0, 0, 0, 0.02)'
+		backgroundColor: 'rgba(0, 0, 0, 0.02)'
 	},
 	statusBarTitle: {
 		flex: 1, lineHeight: 20,

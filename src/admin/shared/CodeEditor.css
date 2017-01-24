@@ -55,29 +55,5 @@
 }
 .cm-s-wings .CodeMirror-matchingbracket {
   text-decoration: underline;
-  color: #dedede !important;
+  color: white !important;
 }
-
-/*Hints*/
-/*.CodeMirror-hints-wrapper {*/
-  /*border-radius: 3px; overflow: hidden;*/
-  /*background-color: #282f3e;*/
-  /*color: #dedede;*/
-/*}*/
-
-/*.CodeMirror-hints .CodeMirror-hint {*/
-  /*background-color: #282f3e;*/
-  /*color: #dedede;*/
-  /*border-top: solid 1px #3e415a;*/
-/*}*/
-
-/*.CodeMirror-hints .CodeMirror-hint-active {*/
-  /*background-color: #3e485f;*/
-/*}*/
-
-/*.CodeMirror-hint-information {*/
-  /*background-color: #282f3e;*/
-  /*border-top: solid 1px #3e415a;*/
-/*}*/
-
-/*.CodeMirror-hint-information .content { color: #AAAAAA; }*/
